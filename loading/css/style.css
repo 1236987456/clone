@@ -1,0 +1,27 @@
+@charset "utf-8";
+/*全局*/
+body{width:100%;height:100%;position:fixed;margin:0;padding:0; background:#fff;color:#000;font-size:14px;background: #06426d; font-family:"Microsoft Yahei",Arial,"宋体", Helvetica, sans-serif;-webkit-text-size-adjust:none; overflow-x:hidden;}
+.wrapper{width:100%;height:100%;clear:both;position:absolute; left:0; top:0; z-index:1;display:none;}
+.wrapper .col_layout{width:100%;height:100%;clear:both;position:absolute; left:0; top:0; z-index:10;display:none; overflow:hidden;background-size:cover!important;}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/*通用*/
+/*音乐按键*/
+.musicicon{position:absolute;width:80px;padding-bottom:80px;top:5px;right:5px;z-index:10000;background:url(../img/music.png) top center no-repeat;background-size:100% auto;background-position:100% 100%;}
+.musicicon.on{background-position:100% 0;}
+.musicplay{-webkit-animation:r 1.2s linear infinite;}
+@-webkit-keyframes r{0%{-webkit-transform:rotateZ(0deg);} 100%{-webkit-transform:rotateZ(360deg);}}
+
+/*加载效果*/
+.loader_box{ width:414px; height:250px; position:absolute; z-index:1000;color: #fff;font-size: 26px; left:50%; top:50%; margin:-160px 0 0 -207px;text-align:center; font-family:Arial;}
+.loader_box .load_img{ width:88px;height: 87px; position:absolute; left:163px;top:0px;background-image: url();background-size: cover;}
+
+
+.loader{margin:0 auto 10px;width:60%;height:6px;background:#ccc;overflow:hidden;position:absolute; left:20%; bottom:0;opacity: 0;}
+.loader.gray{background:#999;}
+.progress-bar{height:inherit;width:0%;border-radius:inherit;position:relative;overflow:hidden;}
+.progress-stripes{width:inherit;height:inherit;font-size:180px;font-weight:bold;margin-top:-50px;letter-spacing:-14px;}
+.percentage{position:absolute;top:140px;left:186px;font-weight:bold;font-size:26px;color: #fff;}
