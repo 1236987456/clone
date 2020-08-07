@@ -1,0 +1,22 @@
+对于修改之后没add的文件可以使用git restore file来撤销修改
+对于修改之后add到暂存区的可以使用git restore --staged file撤销暂存区的然后再使用上面的撤销本地修改
+手动删除本地文件之后在进行 git rm file
+git relog记录每一次命令 用来查看所有命令
+箭头函数this指向
+vue路由懒加载为什么要用懒加载
+单页面应用和多页面应用的区别
+vuex中的选项
+数组去重
+对象遍历
+改变函数的this指向
+一个方法的this指向
+事件委派的原理
+本地存储的区别
+splice slice split
+vue懒加载
+flex布局
+webpack配置less
+插槽
+https://mp.weixin.qq.com/s/vibCTmRv22wBR1ThTFSqTA 知识点大全
+https://www.cnblogs.com/chenqf/p/6386163.html http缓存讲解
+Object.assign()第一个参数是对象合并的目标，后面的参数是合到目标的对象Object.assign({}，obj1，{‘name’：‘lisa’})
