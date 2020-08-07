@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no">
+		<title></title>
+	</head>
+<style>
+	
+	 .game_area {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%
+	}
+	
+	 .item_list {
+		position: absolute;
+		left: 50%;
+		top: 50%
+	}
+	
+	 .item_list:before {
+		position: absolute;
+		left: 50%;
+		width: 157px;
+		height: 69px;
+		margin-left: -80px;
+		background: url(../img/sprite.png) -200px -380px no-repeat
+	}
+	
+	 .item_list .item {
+		position: relative;
+		float: left;
+		perspective: 640px;
+		transition: .5s
+	}
+	
+	 .item_list .item:after,
+	 .item_list .item:before {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		content: ""
+	}
+	
+	 .item_list .item:before {
+		background: url(img/card_bg.png);
+		background-size: contain;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-webkit-transform: rotate3d(0, 0, 0, 0deg);
+		-moz-transform: rotate3d(0, 0, 0, 0deg);
+		transform: rotate3d(0, 0, 0, 0deg);
+		transition: .3s
+	}
+	
+	 .item_list .item:after {
+		left: 0;
+		top: 0;
+		background: url(img/c0.png) center center;
+		background-size: contain;
+		opacity: 0
+	}
+	
+	 .item_list .item .card_front {
+		width: 100%;
+		height: 100%;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		backface-visibility: hidden;
+		background: center center no-repeat;
+		background-size: contain;
+		-webkit-transform: rotate3d(0, -1, 0, 180deg);
+		-moz-transform: rotate3d(0, -1, 0, 180deg);
+		transform: rotate3d(0, -1, 0, 180deg);
+		transition: .3s 
+	}
+	
+	 .item_list .item.active:before,
+	 .item_list .item.current:before {
+		-webkit-transform: rotate3d(0, 1, 0, 180deg);
+		-moz-transform: rotate3d(0, 1, 0, 180deg);
+		transform: rotate3d(0, 1, 0, 180deg);
+	}
+	
+	 .item_list .item.active .card_front,
+	 .item_list .item.current .card_front {
+		-webkit-transform: rotate3d(0, 0, 0, 0deg);
+		-moz-transform: rotate3d(0, 0, 0, 0deg);
+		transform: rotate3d(0, 0, 0, 0deg);
+	}
+	
+	 .item_list .item.active:after {
+		opacity: 1;
+		transition: opacity .1s linear .5s
+	}
+	
+	 .item_list.lv1 {
+		width: 430px;
+		height: 430px;
+		margin: -250px 0 0 -238px;
+		padding: 10px;
+		background: #fff;
+		border: 12px solid #755e53;
+		border-radius: 28px
+	}
+	
+	 .item_list.lv1 .item {
+		width: 191px;
+		height: 191px;
+		margin: 11px
+	}
+	
+	 .item_list.lv1:before {
+		top: -100px
+	}
+	
+	 .item_list.lv2 {
+		width: 430px;
+		height: 636px;
+		margin: -320px 0 0 -238px;
+		padding: 10px;
+		background: #fff;
+		border: 12px solid #755e53;
+		border-radius: 28px
+	}
+	
+	 .item_list.lv2 .item {
+		width: 191px;
+		height: 191px;
+		margin: 11px
+	}
+	
+	 .item_list.lv2:before {
+		top: -100px;
+		background-position: -360px -380px
+	}
+	
+	 .item_list.lv3 {
+		width: 490px;
+		height: 646px;
+		margin: -314px 0 0 -266px;
+		padding: 10px;
+		background: #fff;
+		border: 12px solid #755e53;
+		border-radius: 28px
+	}
+	
+	 .item_list.lv3 .item {
+		width: 140px;
+		height: 140px;
+		margin: 11px
+	}
+	
+	 .item_list.lv3:before {
+		top: -100px;
+		background-position: -200px -450px
+	}
+	
+	 .item_list.lv4 {
+		width: 554px;
+		height: 554px;
+		margin: -300px 0 0 -300px;
+		padding: 10px;
+		background: #fff;
+		border: 12px solid #755e53;
+		border-radius: 28px
+	}
+	
+	 .item_list.lv4 .item {
+		width: 122px;
+		height: 122px;
+		margin: 8px
+	}
+	
+	 .item_list.lv4:before {
+		top: -90px;
+		background-position: -360px -450px
+	}
+	
+	 .item_list.lv5 {
+		width: 540px;
+		height: 670px;
+		margin: -330px 0 0 -290px;
+		padding: 10px;
+		background: #fff;
+		border: 12px solid #755e53;
+		border-radius: 28px
+	}
+	
+</style>
+<body>
+<div class="game">
+     <div class="game_area">
+        <div class="item_list lv3">
+			<div class="item" data-type="4">
+				<div class="card_front" style="background-image:url('img/4.png')"></div>
+			</div>
+			<div class="item" data-type="5">
+				<div class="card_front" style="background-image:url('img/5.png')"></div>
+			</div>
+			<div class="item" data-type="4">
+				<div class="card_front" style="background-image:url('img/4.png')"></div>
+			</div>
+			<div class="item" data-type="3">
+				<div class="card_front" style="background-image:url('img/3.png')"></div>
+			</div>
+			<div class="item" data-type="3">
+				<div class="card_front" style="background-image:url('img/3.png')"></div>
+			</div>
+			<div class="item" data-type="2">
+				<div class="card_front" style="background-image:url('img/2.png')"></div>
+			</div>
+			<div class="item" data-type="2">
+				<div class="card_front" style="background-image:url('img/2.png')"></div>
+			</div>
+			<div class="item" data-type="5">
+				<div class="card_front" style="background-image:url('img/5.png')"></div>
+			</div>
+			<div class="item" data-type="1">
+				<div class="card_front" style="background-image:url('img/1.png')"></div>
+			</div>
+			<div class="item" data-type="1">
+				<div class="card_front" style="background-image:url('img/1.png')"></div>
+			</div>
+			<div class="item" data-type="0">
+				<div class="card_front" style="background-image:url('img/6.png')"></div>
+			</div>
+			<div class="item" data-type="0">
+				<div class="card_front" style="background-image:url('img/6.png')"></div>
+			</div>
+		</div>
+    </div>
+</div>
+</body>
+<script src="js/jquery.js"></script>
+	<script>
+		
+		var num1,num2,flag=true;
+		$(".item").click(function(){
+			if($(this).hasClass("active")){
+				return false;
+			}else if(flag){
+				$(this).addClass("current")
+				var len=$(".current").length;
+					if(len==1){
+						num1=$(this).data("type");
+						console.log(num1)
+					}else{
+						num2=$(this).data("type");
+						if(num1==num2){
+							$(".current").addClass("active");
+							$(".current").removeClass("current");
+							num1="";
+							num2="";
+							if($(".active").length==12){
+								setTimeout(function(){
+									alert("ok")
+								},500)
+							}
+						}else{
+							flag=false;
+							setTimeout(function(){
+								$(".current").removeClass("current");
+								flag=true
+							},300)	
+							num1="";
+							num2=""
+						}
+					}
+			}		
+		});
+	</script>
+</html>
